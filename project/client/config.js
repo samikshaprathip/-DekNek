@@ -1,5 +1,8 @@
+const isFileProtocol = window.location.protocol === 'file:';
+const defaultApiBase = isFileProtocol
+  ? 'http://localhost:5000/api'
+  : `${window.location.origin}/api`;
+
 window.APP_CONFIG = {
-  // Replace with your deployed backend API base URL.
-  // Example: https://your-backend.onrender.com/api
-  API_BASE_URL: 'http://localhost:5000/api',
+  API_BASE_URL: defaultApiBase,
 };

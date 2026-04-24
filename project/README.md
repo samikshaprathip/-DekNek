@@ -61,6 +61,30 @@ project/
 - Set `API_BASE_URL` to your deployed backend API URL ending with `/api`.
 - Example: `https://smart-notes-api.onrender.com/api`
 
+## Deploy (Single Service on Render)
+
+This project is configured so Express serves both API and frontend from one service.
+
+### URLs after deploy
+- UI: `/`
+- API status: `/api`
+- API health: `/health`
+
+### Steps
+1. Push repository to GitHub.
+2. In Render, create a new Blueprint and select this repository.
+3. Render will detect `render.yaml` at repo root.
+4. Set secret env vars in Render:
+    - `MONGO_URI`
+    - `JWT_SECRET`
+5. Deploy.
+
+### Notes
+- `rootDir` is already configured as `project` in `render.yaml`.
+- Frontend API URL auto-resolves:
+   - Local file testing: `http://localhost:5000/api`
+   - Deployed app: `<your-render-domain>/api`
+
 ## API Endpoints
 
 ### Auth

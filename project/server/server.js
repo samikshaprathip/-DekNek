@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
@@ -32,7 +33,7 @@ app.use(
 );
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'Smart Notes & Task Manager API is running' });
 });
 
@@ -43,6 +44,12 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/api/tasks', taskRoutes);
+
+const clientPath = path.join(__dirname, '../client');
+app.use(express.static(clientPath));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(clientPath, 'index.html'));
+});
 
 app.use(notFound);
 app.use(errorHandler);
