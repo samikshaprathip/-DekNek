@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Smart Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="auth-body">
+    <main class="auth-card">
+      <h1>Welcome Back</h1>
+      <p class="subtitle">Login to your Smart Notes workspace.</p>
+
+      <div id="message" class="message" aria-live="polite"></div>
+
+      <form id="loginForm" class="form-grid" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        <small id="loginEmailHint" class="field-hint" aria-live="polite"></small>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Your password" required />
+        <small id="loginPasswordHint" class="field-hint" aria-live="polite"></small>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+
+      <p class="helper-text">
+        New here?
+        <a href="signup.html">Create an account</a>
+      </p>
+    </main>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

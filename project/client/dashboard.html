@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Smart Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="dashboard-body">
+    <header class="topbar">
+      <div>
+        <h1>Smart Notes & Tasks</h1>
+        <p class="subtitle">Stay organized with simple workflows.</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="apiHealthBadge" class="health-badge checking">API: checking</span>
+        <button id="logoutBtn" class="btn btn-outline" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="panel">
+        <h2>Notes</h2>
+        <div class="control-row">
+          <label for="noteSort" class="control-label">Sort</label>
+          <select id="noteSort">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="title-asc">Title A-Z</option>
+            <option value="title-desc">Title Z-A</option>
+          </select>
+          <input id="noteFilter" class="filter-input" type="text" placeholder="Filter notes" />
+        </div>
+        <form id="noteForm" class="form-grid" novalidate>
+          <input id="noteTitle" type="text" placeholder="Note title" required />
+          <small id="noteTitleHint" class="field-hint" aria-live="polite"></small>
+          <textarea id="noteContent" placeholder="Write your note..." rows="4" required></textarea>
+          <small id="noteContentHint" class="field-hint" aria-live="polite"></small>
+          <button type="submit" class="btn btn-primary">Add Note</button>
+        </form>
+        <p id="notesStatus" class="section-status" aria-live="polite"></p>
+        <div id="notesList" class="card-list"></div>
+        <div class="pager-row">
+          <button id="notePrevBtn" class="btn btn-outline small-btn" type="button">Prev</button>
+          <span id="notePageInfo" class="pager-info">Page 1 of 1</span>
+          <button id="noteNextBtn" class="btn btn-outline small-btn" type="button">Next</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Tasks</h2>
+        <div class="control-row">
+          <label for="taskSort" class="control-label">Sort</label>
+          <select id="taskSort">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="pending-first">Pending first</option>
+            <option value="completed-first">Completed first</option>
+            <option value="title-asc">Title A-Z</option>
+            <option value="title-desc">Title Z-A</option>
+          </select>
+          <input id="taskFilter" class="filter-input" type="text" placeholder="Filter tasks" />
+        </div>
+        <form id="taskForm" class="inline-form" novalidate>
+          <input id="taskTitle" type="text" placeholder="New task" required />
+          <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+        <small id="taskTitleHint" class="field-hint" aria-live="polite"></small>
+        <p id="tasksStatus" class="section-status" aria-live="polite"></p>
+        <div id="tasksList" class="card-list"></div>
+        <div class="pager-row">
+          <button id="taskPrevBtn" class="btn btn-outline small-btn" type="button">Prev</button>
+          <span id="taskPageInfo" class="pager-info">Page 1 of 1</span>
+          <button id="taskNextBtn" class="btn btn-outline small-btn" type="button">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="editModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card">
+        <h2>Edit Note</h2>
+        <form id="editNoteForm" class="form-grid" novalidate>
+          <input id="editNoteTitle" type="text" placeholder="Note title" required />
+          <small id="editNoteTitleHint" class="field-hint" aria-live="polite"></small>
+          <textarea id="editNoteContent" placeholder="Write your note..." rows="4" required></textarea>
+          <small id="editNoteContentHint" class="field-hint" aria-live="polite"></small>
+          <div class="row-actions">
+            <button id="cancelEditBtn" class="btn btn-outline" type="button">Cancel</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="message" class="message message-fixed" aria-live="polite"></div>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

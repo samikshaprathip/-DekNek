@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup | Smart Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="auth-body">
+    <main class="auth-card">
+      <h1>Create Account</h1>
+      <p class="subtitle">Start managing your notes and tasks.</p>
+
+      <div id="message" class="message" aria-live="polite"></div>
+
+      <form id="signupForm" class="form-grid" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required />
+        <small id="signupNameHint" class="field-hint" aria-live="polite"></small>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        <small id="signupEmailHint" class="field-hint" aria-live="polite"></small>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="At least 6 characters" required minlength="6" />
+        <small id="signupPasswordHint" class="field-hint" aria-live="polite"></small>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+
+      <p class="helper-text">
+        Already have an account?
+        <a href="index.html">Log in</a>
+      </p>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
